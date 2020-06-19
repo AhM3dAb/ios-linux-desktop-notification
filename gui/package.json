@@ -18,5 +18,10 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^8.2.4"
+  },
+  "dependencies": {
+    "detect-gender": "^1.0.0",
+    "node-ps": "0.0.2",
+    "ps-node": "^0.1.6"
   }
 }

@@ -1,0 +1,135 @@
+body {
+	 margin: 0;
+	 overflow: hidden;
+}
+ .Notification {
+	 height: 5.5em;
+	 transition: height 0.75s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+	 font-size: 12px;
+	 text-align: left;
+}
+ .Notification--Close {
+	 height: 0;
+}
+ .Notification--Close .Notification__Container {
+	 transform: scale(0);
+}
+ .Notification--Optimize {
+	 will-change: height;
+}
+ .Notification--Optimize .Notification__Container {
+	 will-change: transform;
+}
+ .Notification__Container {
+	 background: #2a304494;
+	 color: #fff;
+	 cursor: pointer;
+	 border-radius: 0.5em;
+	 overflow: hidden;
+	 transform: scale(1);
+	 transition: transform 0.75s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+	 height: 5em;
+}
+ .Notification__Icon, .Notification__Name {
+	 display: inline-block;
+}
+ .Notification__Name {
+	 vertical-align: middle;
+}
+ .Notification__Icon {
+	 vertical-align: middle;
+}
+ .Notification__Icon img {
+	 height: 1.5em;
+	 width: 1.5em;
+}
+ .Notification__Header {
+	 overflow: hidden;
+	 padding: 0.5em;
+	 padding-bottom: 0;
+	 font-size: 0.9em;
+}
+ .Notification__Time {
+	 float: right;
+}
+ .Notification__App {
+	 float: left;
+}
+ .Notification__Body {
+	 padding: 0.25em 0.5em;
+}
+ .Notification__Title {
+	 padding-bottom: 0.25em;
+	 font-weight: bold;
+}
+ .Notification__Content {
+	 white-space: nowrap;
+	 overflow: hidden;
+	 text-overflow: ellipsis;
+	 padding-bottom: 0.5em;
+}
+ .Notifications {
+	 position: relative;
+	 /* left: calc(50% - (85% / 2)); */
+	 user-select: none;
+	 width: 100%;
+	 height: 100%;
+}
+ .Notifications__List {
+margin-top: 42px;
+	 padding: 0;
+	 list-style: none;
+	 width: 100%;
+	 height: calc(90%);
+	 overflow-y: auto;
+	 padding: 0.5em;
+	 box-sizing: border-box;
+}
+ .Notifications__List:before {
+	 content: 'Notifications';
+	 display: black;
+	 position: absolute;
+	 left: 50%;
+	 transform: translate(-50%);
+	 top: 25%;
+	 font-size: 1.5em;
+	 letter-spacing: 0.05em;
+	 opacity: 0;
+	 transition: opacity 0.25s cubic-bezier(0.77, 0, 0.175, 1);
+}
+ .Notifications__List:empty:before {
+	 opacity: 1;
+}
+ .Notifications__btns {
+	 height: 10%;
+	 text-align: center;
+	 top: -21%;
+	 position: relative;
+}
+ .Notifications__addBtn {
+	 display:none;
+	 padding: 0;
+	 width: 45%;
+	 height: 100%;
+	 font-size: 1.5em;
+	 letter-spacing: 0.05em;
+	 border: none;
+	 background: #c3c3c3;
+	 color: #2f2f2f;
+	 border-radius: 0.5em;
+}
+.Notifications__removeBtn {
+	display: none;
+	padding: 0;
+	width: 20px;
+	height: 20px;
+	font-size: 0.7em;
+	letter-spacing: 0em;
+	border: none;
+	background: #2a304494;
+	color: #fff;
+	border-radius: 0.5em;
+	position: fixed;
+	top: 6%;
+	right: 4%;
+}

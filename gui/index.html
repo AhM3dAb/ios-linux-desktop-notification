@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="swiper.min.css">
+<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+<meta name="apple-mobile-web-app-title" content="CodePen">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://rawgit.com/pixelsign/html5-device-mockups/master/dist/device-mockups.min.css">
+
+<style>
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html{
+   height: 100%;
+   overflow: scroll;
+overflow-y: hidden;
+overflow-x: hidden;
+
+ }
+.swiper-container {
+      width: 100%;
+      height: 100%;
+      background-color: transparent !important;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: transparent;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+    .swiper-pagination-bullet{
+      background: #0238a4;
+    }
+body {
+font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+font-size: 14px;
+margin: 0;
+padding: 0;
+}
+
+.clock {
+	background-image: url("clock.png");
+	background-position: center;
+	background-size: cover;
+	height: 45px;
+	width: 45px;
+	position: absolute;
+	top: 100px;
+	left: 40px;
+	z-index: 11;
+}
+
+.map {
+	background-image: url("map.png");
+	background-position: center;
+	background-size: cover;
+	height: 42px;
+	width: 42px;
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	z-index: 11;
+}
+
+.mail {
+	background-image: url("mail.png");
+	background-position: center;
+	background-size: cover;
+	height: 42px;
+	width: 42px;
+	position: absolute;
+	top: 100px;
+	left: 157px;
+	z-index: 11;
+}
+
+.setting {
+	background-image: url("setting.png");
+	background-position: center;
+	background-size: cover;
+	height: 42px;
+	width: 42px;
+	position: absolute;
+	top: 100px;
+	left: 215px;
+	z-index: 11;
+}
+
+.phone {
+	background-image: url("phone.png");
+	background-position: center;
+	background-size: cover;
+	height: 42px;
+	width: 42px;
+	position: absolute;
+	top: 175px;
+	left: 40px;
+	z-index: 11;
+}
+
+.photo {
+	background-image: url("photo.png");
+	background-position: center;
+	background-size: cover;
+	height: 42px;
+	width: 42px;
+	position: absolute;
+	top: 175px;
+	left: 99px;
+	z-index: 11;
+}
+
+#reception_bar_one, #reception_bar_two, #reception_bar_three, #reception_bar_four {
+	position: absolute;
+	z-index: 10;
+	border-radius: 25px;
+}
+
+#reception_bar_one{
+  height: 8px;
+  width: 3px;
+  top: 7px;
+  left: 15px;
+  background-color: white;
+}
+
+#reception_bar_two{
+  height: 6px;
+  width: 3px;
+  top: 9px;
+  left: 10px;
+  background-color: white;
+}
+
+#reception_bar_three{
+  height: 4px;
+  width: 3px;
+  top: 11px;
+  left: 5px;
+  background-color: white;
+}
+
+#reception_bar_four{
+  height: 10px;
+  width: 3px;
+  top: 5px;
+  left: 20px;
+  background-color: #505050;
+}
+
+div.scroll {
+               margin:4px, 4px;
+               padding:4px;
+               background-color: green;
+               overflow-x: hidden;
+
+               text-align:justify;
+           }
+           ::-webkit-scrollbar {
+           display: none;
+           }
+.network {
+  color: white;
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  z-index: 10;
+  font-size: 9px;
+  font-family: arial;
+}
+
+.time {
+  color: white;
+  position: absolute;
+  top: 5px;
+  left: 110px;
+  z-index: 10;
+  font-size: 9px;
+  font-family: arial;
+}
+
+.battery_outer {
+  background-color: white;
+  position: absolute;
+  z-index: 10;
+  border-radius: 1px;
+  height: 6px;
+  width: 15px;
+  top: 7px;
+  left: 245px;
+  border: 1px solid grey;
+}
+
+.battery_percent {
+  color: white;
+  position: absolute;
+  top: 5px;
+  left: 220px;
+  z-index: 10;
+  font-size: 9px;
+  font-family: arial;
+}
+
+
+
+.centered {
+  top:40%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: block;
+  position: relative;
+}
+
+
+html::-webkit-scrollbar{
+  overflow: scroll;
+overflow-y: hidden;
+width: 0px;  /* Remove scrollbar space */
+   background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+/* Doesn't work
+.device-wrapper {
+  height: 200px;
+} */
+
+/* Works */
+
+.device-wrapper {
+  -webkit-app-region: drag;
+  width: 350px;
+}
+
+/* ben182
+ * To control height you need little math:
+ * Height 200px: 200 / 209.829619921363 * 100 =
+*/
+
+.device-wrapper {
+  width: 166,801998751px;
+}
+
+.home_button_screen{
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+  top: 545px;
+  left: 125px;
+  width: 50px;
+  height: 50px;
+  align:center;
+  position: absolute;
+
+}
+.screen{
+  -webkit-app-region: no-drag;
+  background-image: url("wall.jpeg");
+
+}
+#splash{
+  z-index: 10;
+  background-color:black;
+  width: 100%;
+  height: 100%;
+  position:relative;
+}
+#main_screen {
+  bottom: 260px;
+  position: relative;
+  right: 150px;
+}
+#dock {
+display:none;
+background: #84727e;
+}
+.ios_header{
+  position: inherit;
+}
+.notif_badge {
+    position: absolute;
+    top:-5px;
+    right: -8px;
+    padding: 1px 6px;
+    border-radius:100px;
+    background: -webkit-linear-gradient(top, #FF6969 0%,#ff0000 100%);
+    box-shadow: 0 1px 2px rgba(0,0,0,.5), 0 1px 4px rgba(0,0,0,.4), 0 0 1px rgba(0,0,0,.7) inset, 0 10px 0px rgba(255,255,255,.11) inset;
+    -webkit-background-clip: padding-box;
+    font:bold 10px/16px "Helvetica Neue", sans-serif;
+    color: white;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.6);
+}
+.app_name {
+  position: absolute;
+  top: 49px;
+  right: 8px;
+  color: white;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
+.inside_dock{
+  position: fixed;
+  bottom: 240px;
+  left: 0px;
+}
+#main {
+  display:none;
+  height:85%;
+}
+.incoming_call{
+display: none;
+ z-index:1000;
+background-color: #39464e;
+border-radius: 15px;
+width: 90%;
+height: 15%;
+margin: auto;
+position: absolute;
+top: 30px;
+left:13px;
+}
+</style>
+
+</head>
+<body translate="yes">
+
+  <!-- <textarea id="newData" style="height:0px;width:0px;">test</textarea> -->
+  <div class="device-wrapper">
+    <div class="device" data-device="iPhone7" data-orientation="portrait" data-color="black">
+
+      <div class="screen">
+        <div class="incoming_call"></div>
+        <div class="hangup_call"></div>
+
+        <div id="splash" >
+            <img src=logo.png class="centered"  style="width:50px;height:60px;"></img>
+        </div>
+               <div id="main">
+
+                 <div class="ios_header">
+                 <div id ="reception_bar_one"></div>
+                 <div id ="reception_bar_two"></div>
+                 <div id ="reception_bar_three"></div>
+                 <div id ="reception_bar_four"></div>
+                 <div class="network">Orange TN 4G</div>
+                 <div class="time">12:00 PM</div>
+                 <div class="battery_outer"></div>
+                 <div class="battery_percent">100%</div>
+                </div>
+
+                <!-- Swiper -->
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide ">
+        <div class="Notifications ">
+        	<ul class="Notifications__List">
+        		<li class="Notification">
+        			<div class="Notification__Container">
+                <span class="notif_badge">x</span>
+        				<div class="Notification__Header">
+        					<div class="Notification__App">
+        						<div class="Notification__Icon">
+        							<img>
+        						</div>
+        						<div class="Notification__Name"></div>
+        					</div>
+        					<div class="Notification__Time"></div>
+        				</div>
+        				<div class="Notification__Body">
+        					<div class="Notification__Title"></div>
+        					<div class="Notification__Content"></div>
+        				</div>
+        			</div>
+        		</li>
+        	</ul>
+        	<div class="Notifications__btns">
+        		<button class="Notifications__addBtn">Add</button>
+        	      <button class="Notifications__removeBtn">x</button>
+        	</div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+
+        <div id="main_screen">
+            <div class="icons clock"><span class="notif_badge">1</span><span class="app_name">clock</span></div>
+            <div class="icons map"><span class="notif_badge">1</span></div>
+            <div class="icons mail"><span class="notif_badge">3</span></div>
+            <div class="icons setting"></div>
+            <div class="icons phone"></div>
+            <div class="icons photo"></div>
+
+          </div>
+    </div>
+      <div class="swiper-slide">
+        <div class="icons clock"><span class="notif_badge">1</span><span class="app_name">clock</span></div>
+        <div class="icons map"><span class="notif_badge">1</span></div>
+        <div class="icons mail"><span class="notif_badge">3</span></div>
+      </div>
+      <div class="swiper-slide">Slide 3</div>
+
+    </div>
+
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+
+  </div>
+ </div>
+</div>
+<div id="dock">
+  <div class="inside_dock">
+  <div class="icons setting"></div>
+  <div class="icons clock"><span class="notif_badge">1</span></div>
+  <div class="icons map"><span class="notif_badge">1</span></div>
+  <div class="icons mail"><span class="notif_badge">3</span></div>
+</div>
+</div>
+
+
+</div>
+<div class="home_button_screen button">
+  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+
+</div>
+</div>
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+
+<!-- Swiper JS -->
+ <script src="swiper.min.js"></script>
+ <script type="text/javascript" src="script.js"></script>
+ <script type="text/javascript" src="linkers/get_notification.js"></script>
+
+<script>
+
+document.getElementsByClassName('button')[0]
+        .addEventListener('click', function (event) {
+            alert("home")
+        });
+
+        $('#splash').ready()
+        {
+            //$('#main').load('file.html');
+            setTimeout(function() {
+              <!-- Initialize Swiper -->
+                    $('#splash').remove();
+                    $('#main').css("display", "block");
+                    $('#dock').show(1000);
+                    var swiper = new Swiper('.swiper-container', {
+                      pagination: {
+                        el: '.swiper-pagination',
+                      },
+                    });
+                    get_notification();
+
+            }, 1000);
+        }
+        $(".screen" ).click(function() {
+          $( ".incoming_call" ).slideDown( "slow" );;
+        });
+        // $('#newData').on('change', function(){
+        //   if($('#newData').value != "")
+        //     alert("changed");
+        //
+        //     $('#newData').value = "";
+        // });
+</script>
+<script>if (window.module) module = window.module;</script>
+
+</body></html>
